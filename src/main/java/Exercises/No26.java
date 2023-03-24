@@ -20,16 +20,19 @@ package Exercises;
 public class No26 {
 
     public static int remoeveDuplicates(int[] nums){
-        int i = 0;
-        int j = 1;
-        while (j < nums.length){
-            if (nums[i] != nums[j]){
-                i++;
-                nums[i] = nums[j];
-            }
-            j++;
+        if (nums.length == 0){
+            return 0;
         }
-        return i+1;
+        int slow = 0;
+        int fast = 1;
+        while (fast < nums.length){
+            if (nums[slow] != nums[fast]){
+                slow++;
+                nums[slow] = nums[fast];
+            }
+            fast++;
+        }
+        return slow + 1;
     }
 
     public static void main(String[] args) {
